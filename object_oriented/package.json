@@ -4,8 +4,14 @@
   "description": "This is a simple project to show the basic concepts with Type Script",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "start": "tsc -w"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  },
+  "type": "module"
 }
