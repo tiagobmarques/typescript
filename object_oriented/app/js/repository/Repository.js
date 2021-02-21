@@ -7,18 +7,25 @@ export class Repository {
         throw new Error("This method should be implemented by class extended!");
     }
     findAll() {
-        return [].concat(this._objectList);
+        return [...this._objectList];
     }
     findById(id) {
-        throw new Error("This method should be implemented by class extended!");
+        return this._objectList.find(element => element.id == id);
     }
     save(entity) {
         this._objectList.push(entity);
     }
     update(id, entity) {
-        throw new Error("This method should be implemented by class extended!");
+        const index = this.findAll().map(e => e.id).indexOf(id);
+        if (index > -1) {
+            this._objectList[index] = entity;
+        }
     }
     delete(id) {
-        throw new Error("This method should be implemented by class extended!");
+        const element = this.findById(id);
+        const index = this.findAll().indexOf(element);
+        if (index > -1) {
+            this._objectList.splice(index, 1);
+        }
     }
 }

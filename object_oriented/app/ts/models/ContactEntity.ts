@@ -1,26 +1,15 @@
+export interface IContactEntity{
+    id: number,
+    name: String
+}
+
 export class ContactEntity {
 
-    private _id: number;
-    private _name: String;
+    public id: number;
+    public name: String;
 
-    constructor (id: number, name: String) {
-        this._id = id,
-        this._name = name;
-    }
-
-    get id() {
-        return this._id;
-    }
-
-    set id(id) {
-        this._id = id;
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    set name(name) {
-        this._name = name;
+    constructor (data: IContactEntity) {
+        this.id = data.id,
+        this.name = data.name;
     }
 }

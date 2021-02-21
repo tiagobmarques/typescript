@@ -1,39 +1,21 @@
-import { ContactEntity } from "./ContactEntity.js";
+import { ContactEntity, IContactEntity } from "./ContactEntity.js";
+
+interface IParticipantEntity extends IContactEntity {
+    registrationCode: number;
+    registrationType: String;
+    registrationNumber: String;
+}
 
 export class ParticipantEntity extends ContactEntity{
 
-    private _registrationCode: number;
-    private _registrationType: String;
-    private _registrationNumber: String;
+    public registrationCode: number;
+    public registrationType: String;
+    public registrationNumber: String;
  
-    constructor (id: number, name: String, registrationCode: number, registrationType: String, registrationNumber: String) {
-        super(id, name);
-        this._registrationCode = registrationCode;
-        this._registrationType = registrationType;
-        this._registrationNumber = registrationNumber;
-    }
-
-    get registrationCode() {
-        return this._registrationCode;
-    }
-
-    set registrationCode(registrationCode) {
-        this._registrationCode = registrationCode;
-    }
-
-    get registrationType() {
-        return this._registrationType;
-    }
-
-    set registrationType(registrationType) {
-        this._registrationType = registrationType;
-    }
-
-    get registrationNumber() {
-        return this._registrationNumber;
-    }
-
-    set registrationNumber(registrationNumber) {
-        this._registrationNumber = registrationNumber;
+    constructor (data: IParticipantEntity) {
+        super(data);
+        this.registrationCode = data.registrationCode;
+        this.registrationType = data.registrationType;
+        this.registrationNumber = data.registrationNumber;
     }
 }

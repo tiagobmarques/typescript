@@ -4,14 +4,14 @@ import { ParticipantEntity } from './models/ParticipantEntity.js';
 import { UserRepository } from './repository/UserRepository.js';
 import { UserEntity } from './models/UserEntity.js';
 
-// Participant
-const newParticipant = new ParticipantEntity(5, "Carlos", 840005, "CPF", "32165498745");
+// Participant test
+const newParticipant = new ParticipantEntity({id: 5, name: "Carlos", registrationCode: 840005, registrationType: "CPF", registrationNumber: "32165498745"});
 
 const participantRepository = new ParticipantRepository();
 participantRepository.save(newParticipant);
 
 // User
-const newUser = new UserEntity(3, "Rafael", "rafaelbm", "12345");
+const newUser = new UserEntity({id: 3, name: "Rafael", login: "rafaelbm", password: "12345"});
 
 const userRepository = new UserRepository();
 userRepository.save(newUser);

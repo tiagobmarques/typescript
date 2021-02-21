@@ -1,4 +1,8 @@
-export class Repository<T>{
+interface Entity {
+    id: number
+}
+
+export abstract class Repository<T extends Entity>{
 
     protected _objectList : T[] = [];
 
@@ -11,11 +15,11 @@ export class Repository<T>{
     }
 
     findAll(): T[] {
-        return [].concat(this._objectList);
+        return [...this._objectList];
     }
 
     findById(id: number) {
-        throw new Error("This method should be implemented by class extended!");
+        return this._objectList.find(element => element.id == id)
     }
 
     save(entity: T) {
@@ -23,10 +27,19 @@ export class Repository<T>{
     }
 
     update(id: number, entity: T) {
-        throw new Error("This method should be implemented by class extended!");
+        const index = this.findAll().map(e => e.id).indexOf(id);
+
+        if (index > -1) {
+            this._objectList[index] = entity;
+        }
     }
 
     delete(id: number) {
-        throw new Error("This method should be implemented by class extended!");
+        const element = this.findById(id);
+        const index = this.findAll().indexOf(element);
+
+        if (index > -1) {
+            this._objectList.splice(index, 1);
+        }
     }
 }

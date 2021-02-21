@@ -1,58 +1,26 @@
 import { ParticipantEntity } from './ParticipantEntity';
+
+interface IInvoiceEntity {
+    id: number;
+    participant: ParticipantEntity;
+    installmentDate: Date;
+    document: String;
+    value: number;
+}
+
 export class InvoiceEntity {
 
-    private _id: number;
-    private _participant: ParticipantEntity;
-    private _installmentDate: Date;
-    private _document: String;
-    private _value: number;
+    public  id: number;
+    public  participant: ParticipantEntity;
+    public  installmentDate: Date;
+    public  document: String;
+    public  value: number;
 
-    constructor(id: number, participant: ParticipantEntity, installmentDate: Date, document: string, value: number) {
-        this._id = id;
-        this._participant = participant;
-        this._installmentDate = installmentDate;
-        this._document = document;
-        this._value = value;
+    constructor(data: IInvoiceEntity) {
+        this.id = data.id;
+        this.participant = data.participant;
+        this.installmentDate = data.installmentDate;
+        this.document = data.document;
+        this.value = data.value;
     }
-
-    get id(){
-        return this._id;
-    }
-
-    set id(id){
-        this._id = id;
-    }
-
-    get participant(){
-        return this._participant;
-    }
-
-    set participant(participant){
-        this._participant = participant;
-    }
-
-    get installmentDate(){
-        return this._installmentDate;
-    }
-
-    set installmentDate(installmentDate){
-        this._installmentDate = installmentDate;
-    }
-
-    get document(){
-        return this._document;
-    }
-
-    set document(document){
-        this._document = document;
-    }
-
-    get value(){
-        return this._value;
-    }
-
-    set value(value){
-        this._value = value;
-    }
-
 }
