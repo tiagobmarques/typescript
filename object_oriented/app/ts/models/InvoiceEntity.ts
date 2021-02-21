@@ -1,4 +1,4 @@
-import { ParticipantEntity } from './ParticipantEntity';
+import { ParticipantEntity } from './ParticipantEntity.js';
 
 interface IInvoiceEntity {
     id: number;

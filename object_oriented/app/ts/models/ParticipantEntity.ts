@@ -1,15 +1,16 @@
+import { RegistrationType } from './../enums/registration-type.enum.js';
 import { ContactEntity, IContactEntity } from "./ContactEntity.js";
 
 interface IParticipantEntity extends IContactEntity {
     registrationCode: number;
-    registrationType: String;
+    registrationType: RegistrationType;
     registrationNumber: String;
 }
 
 export class ParticipantEntity extends ContactEntity{
 
     public registrationCode: number;
-    public registrationType: String;
+    public registrationType: RegistrationType;
     public registrationNumber: String;
  
     constructor (data: IParticipantEntity) {
